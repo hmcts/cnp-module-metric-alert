@@ -1,23 +1,11 @@
-variable alertName {}
-
-variable appInsightsName {}
-
-variable alertDesc {}
-
-variable appInsightsQuery {}
-
-variable queryType {}
-
-variable frequencyInMinutes {}
-
-variable timeWindowInMinutes {}
-
-variable severityLevel {}
-
-variable actionGroupName {}
-
-variable triggerThresholdOperator {}
-
-variable triggerThreshold {}
-
-variable resourceGroupName {}
+variable resourcegroup_name {}
+variable app_insights_name {}
+variable alert_name {}
+variable alert_desc {}
+variable app_insights_query {}
+variable frequency_in_minutes {}
+variable time_window_in_minutes {}
+variable severity_level {}
+variable action_group_name {}
+variable trigger_threshold_operator {}
+variable trigger_threshold {}

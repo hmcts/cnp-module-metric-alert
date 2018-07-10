@@ -5,9 +5,20 @@ data "template_file" "metricalerttemplate" {
 
 resource "azurerm_template_deployment" {
   template_body       = "${data.template_file.metricalerttemplate.rendered}"
+  name                = "Create custom alert template"
+  resource_group_name = "${parameters("resourcegroup_name")}"
+  deployment_mode     = "Incremental"
 
-  name = "Create custom alert template"
-  deployment_mode = "Incremental"
-
-  resource_group_name = "${parameters("resourceGroupName")}"
+  parameters = {
+    alertName                = "${var.alert_name}"
+    alertDesc                = "${var.alert_desc}"
+    appInsightsName          = "${var.app_insights_name}"
+    triggerThresholdOperator = "${var.trigger_threshold_operator}"
+    triggerThreshold         = "${var.trigger_threshold}"
+    frequencyInMinutes       = "${var.frequency_in_minutes}"
+    timeWindowInMinutes      = "${var.time_window_in_minutes}"
+    severityLevel            = "${var.severity_level}"
+    actionGroupName          = "${var.action_group_name}"
+    appInsightsQuery         = "${var.app_insights_query}"
+  }
 }

@@ -11,10 +11,6 @@
     "appInsightsName": {
       "type": "string"
     },
-    "queryType": {
-      "type": "string",
-      "defaultValue": "ResultCount"
-    },
     "triggerThresholdOperator": {
       "type": "string",
       "defaultValue": "GreaterThan",
@@ -55,42 +51,31 @@
       "tags": {
         "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource"
       },
-      "kind": null,
       "properties": {
         "description": "[parameters('alertDesc')]",
         "enabled": "true",
         "skuType": "L1",
         "source": {
           "query": "[parameters('appInsightsQuery')]",
-          "authorizedResources": null,
-          "resourceId": null,
           "dataSourceId": "[resourceId('microsoft.insights/components', parameters('appInsightsName'))]",
-          "queryType": "[parameters('queryType')]"
+          "queryType": "ResultCount"
         },
-        "metricName": null,
         "schedule": {
           "frequencyInMinutes": "[parameters('frequencyInMinutes')]",
           "timeWindowInMinutes": "[parameters('timeWindowInMinutes')]"
         },
         "action": {
-          "lastFiredTime": null,
           "severity": "[parameters('severityLevel')]",
           "status": "Active",
           "aznsAction": {
             "actionGroup": [
               "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]"
-            ],
-            "emailSubject": null,
-            "customWebhookPayload": null
+            ]
           },
-          "actionGroup": null,
-          "alertStateManagement": null,
-          "throttlingInMin": null,
           "trigger": {
             "thresholdOperator": "[parameters('triggerThresholdOperator')]",
             "threshold": "[parameters('triggerThreshold')]",
-            "consecutiveBreach": 1,
-            "metricTrigger": null
+            "consecutiveBreach": 1
           },
           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction"
         }
