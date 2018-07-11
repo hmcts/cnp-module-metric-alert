@@ -21,15 +21,15 @@
       ]
     },
     "triggerThreshold": {
-      "type": "int"
+      "type": "string"
     },
     "frequencyInMinutes": {
-      "type": "int",
-      "defaultValue": 5
+      "type": "string",
+      "defaultValue": "5"
     },
     "timeWindowInMinutes": {
-      "type": "int",
-      "defaultValue": 5
+      "type": "string",
+      "defaultValue": "5"
     },
     "severityLevel": {
       "type": "string",
