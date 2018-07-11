@@ -11,10 +11,10 @@ The name of the azure resource group, such as `cmc-claim-store-prod`.
 #### `app_insights_name`
 The name of the application insights resource in Azure.
 
+### Alert definition variables
+
 #### `template_name`
 The name of the template deployment. Changing this forces a new resource to be created. Must match the format `^[-\w\._\(\)]+$`.
-
-### Alert definition variables
 
 #### `alert_name`
 The name of the alert to create.
