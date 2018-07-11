@@ -6,7 +6,7 @@ data "template_file" "metricalerttemplate" {
 resource "azurerm_template_deployment" "bpf_alert" {
   template_body       = "${data.template_file.metricalerttemplate.rendered}"
   name                = "Create custom alert template"
-  resource_group_name = "${parameters("resourcegroup_name")}"
+  resource_group_name = "${var.resourcegroup_name}"
   deployment_mode     = "Incremental"
 
   parameters = {
