@@ -12,7 +12,6 @@ The following parameters are required by this module
 - `resourcegroup_name` The name of the azure resource group, such as `cmc-claim-store-prod`.
 - `app_insights_name` The name of the application insights resource in Azure.
 - `location` The location of the Azure data center.
-- `template_name` The name of the template deployment. Changing this forces a new resource to be created. Must match the format `^[-\w\._\(\)]+$`.
 - `alert_name` The name of the alert to create.
 - `alert_desc` A description of the alert.
 - `app_insights_query` The custom query to execute against the logs. See https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics .
