@@ -11,6 +11,9 @@
     "appInsightsName": {
       "type": "string"
     },
+    "location": {
+      "type": "string"
+    },
     "triggerThresholdOperator": {
       "type": "string",
       "defaultValue": "GreaterThan",
