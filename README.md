@@ -48,5 +48,5 @@ The operator to apply to the result with respect to the `trigger_threshold`. All
         "`Equal`", and 
         "`LessThan`".
 
-####
+#### `trigger_threshold`
 The threshold at which to trigger the alert, with respect to the `trigger_threshold_operator`.
