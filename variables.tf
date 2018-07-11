@@ -1,5 +1,6 @@
 variable resourcegroup_name {}
 variable app_insights_name {}
+variable location {}
 variable template_name {}
 variable alert_name {}
 variable alert_desc {}

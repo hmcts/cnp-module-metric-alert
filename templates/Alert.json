@@ -47,7 +47,7 @@
       "name": "[parameters('alertName')]",
       "apiVersion": "2017-09-01-preview",
       "type": "microsoft.insights/scheduledqueryrules",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "tags": {
         "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource"
       },
