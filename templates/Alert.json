@@ -1,0 +1,88 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "alertName": {
+      "type": "string"
+    },
+    "alertDesc": {
+      "type": "string"
+    },
+    "appInsightsName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "triggerThresholdOperator": {
+      "type": "string",
+      "defaultValue": "GreaterThan",
+      "allowedValues": [
+        "GreaterThan",
+        "Equal",
+        "LessThan"
+      ]
+    },
+    "triggerThreshold": {
+      "type": "string"
+    },
+    "frequencyInMinutes": {
+      "type": "string",
+      "defaultValue": "5"
+    },
+    "timeWindowInMinutes": {
+      "type": "string",
+      "defaultValue": "5"
+    },
+    "severityLevel": {
+      "type": "string",
+      "defaultValue": "3"
+    },
+    "actionGroupName": {
+      "type": "string"
+    },
+    "appInsightsQuery": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('alertName')]",
+      "apiVersion": "2017-09-01-preview",
+      "type": "microsoft.insights/scheduledqueryrules",
+      "location": "[parameters('location')]",
+      "tags": {
+        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource"
+      },
+      "properties": {
+        "description": "[parameters('alertDesc')]",
+        "enabled": "true",
+        "skuType": "L1",
+        "source": {
+          "query": "[parameters('appInsightsQuery')]",
+          "dataSourceId": "[resourceId('microsoft.insights/components', parameters('appInsightsName'))]",
+          "queryType": "ResultCount"
+        },
+        "schedule": {
+          "frequencyInMinutes": "[parameters('frequencyInMinutes')]",
+          "timeWindowInMinutes": "[parameters('timeWindowInMinutes')]"
+        },
+        "action": {
+          "severity": "[parameters('severityLevel')]",
+          "status": "Active",
+          "aznsAction": {
+            "actionGroup": [
+              "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]"
+            ]
+          },
+          "trigger": {
+            "thresholdOperator": "[parameters('triggerThresholdOperator')]",
+            "threshold": "[parameters('triggerThreshold')]",
+            "consecutiveBreach": 1
+          },
+          "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction"
+        }
+      }
+    }
+  ]
+}
