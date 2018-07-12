@@ -41,6 +41,9 @@
     "actionGroupName": {
       "type": "string"
     },
+    "customEmailSubject": {
+      "type": "string"
+    },
     "appInsightsQuery": {
       "type": "string"
     }
