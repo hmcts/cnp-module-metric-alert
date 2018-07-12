@@ -20,6 +20,7 @@ resource "azurerm_template_deployment" "custom_alert" {
     timeWindowInMinutes      = "${var.time_window_in_minutes}"
     severityLevel            = "${var.severity_level}"
     actionGroupName          = "${var.action_group_name}"
+    customEmailSubject       = "${var.custom_email_subject}"
     appInsightsQuery         = "${var.app_insights_query}"
   }
 }

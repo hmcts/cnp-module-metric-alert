@@ -41,6 +41,9 @@
     "actionGroupName": {
       "type": "string"
     },
+    "customEmailSubject": {
+      "type": "string"
+    },
     "appInsightsQuery": {
       "type": "string"
     }
@@ -73,7 +76,8 @@
           "aznsAction": {
             "actionGroup": [
               "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]"
-            ]
+            ],
+            "emailSubject": "[parameters('customEmailSubject')]"
           },
           "trigger": {
             "thresholdOperator": "[parameters('triggerThresholdOperator')]",
