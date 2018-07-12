@@ -31,6 +31,9 @@ variable severity_level {
 variable action_group_name {
   description = "The name of the action group to invoke when the alert is triggered"
 }
+variable custom_email_subject {
+  description = "The subject of the email sent to the email IDs specified in the action group"
+}
 variable trigger_threshold_operator {
   description = "The operator to apply to the result with respect to the trigger_threshold. Allowed values are: GreaterThan, Equal and LessThan."
   default = "GreaterThan"

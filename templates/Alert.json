@@ -73,7 +73,8 @@
           "aznsAction": {
             "actionGroup": [
               "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]"
-            ]
+            ],
+            "emailSubject": "[parameters('customEmailSubject')]"
           },
           "trigger": {
             "thresholdOperator": "[parameters('triggerThresholdOperator')]",
