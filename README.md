@@ -40,13 +40,14 @@ The following example shows how to use the module to create an Azure alert for a
 ```terraform
 module "messy-dudes-alert" {
   source = "git@github.com:hmcts/cnp-module-metric-alert"
-  location = "${var.location}"
+  location = "${var.appinsights_location}"
 
   app_insights_name = "my-app-insights"
 
   alert_name = "Dudes Messed Up Alert"
   alert_desc = "Triggers when too many dudes mess up in a 5 minute poll."
   app_insights_query = "customEvents | where name == \"Dude messed up\""
+  custom_email_subject = "Warning: Dudes Messed Up Alert"
   frequency_in_minutes = 5
   time_window_in_minutes = 5
   severity_level = "2"
