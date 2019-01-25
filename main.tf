@@ -1,3 +1,6 @@
+locals {
+  action_group_rg = "${var.action_group_rg != "" ? var.action_group_rg : var.resourcegroup_name}"
+}
 
 data "template_file" "metricalerttemplate" {
   template = "${file("${path.module}/templates/Alert.json")}"
@@ -22,5 +25,6 @@ resource "azurerm_template_deployment" "custom_alert" {
     actionGroupName          = "${var.action_group_name}"
     customEmailSubject       = "${var.custom_email_subject}"
     appInsightsQuery         = "${var.app_insights_query}"
+    actionGroupRg            = "${local.action_group_rg}"
   }
 }

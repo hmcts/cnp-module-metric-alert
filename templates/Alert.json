@@ -41,6 +41,9 @@
     "actionGroupName": {
       "type": "string"
     },
+    "actionGroupRg": {
+      "type": "string"
+    },
     "customEmailSubject": {
       "type": "string"
     },
@@ -75,7 +78,7 @@
           "status": "Active",
           "aznsAction": {
             "actionGroup": [
-              "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]"
+              "[resourceId(parameters('actionGroupRg'), 'microsoft.insights/actionGroups', parameters('actionGroupName'))]"
             ],
             "emailSubject": "[parameters('customEmailSubject')]"
           },
