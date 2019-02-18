@@ -8,7 +8,7 @@ data "template_file" "metricalerttemplate" {
 
 resource "azurerm_template_deployment" "custom_alert" {
   template_body       = "${data.template_file.metricalerttemplate.rendered}"
-  name                = "${var.app_insights_name}"
+  name                = "${var.alert_name}"
   resource_group_name = "${var.resourcegroup_name}"
   deployment_mode     = "Incremental"
 
