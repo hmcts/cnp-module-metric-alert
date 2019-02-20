@@ -14,6 +14,7 @@ The following parameters are required by this module
 - `location` The location of the Azure data center.
 - `alert_name` The name of the alert to create.
 - `alert_desc` A description of the alert.
+- `enabled` true/false flag.
 - `app_insights_query` The custom query to execute against the logs. See https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics .
 - `action_group_name` The name of the action group to invoke when the alert is triggered.
 - `custom_email_subject` The subject of the email sent to the email IDs specified in the action group. (If there are no email IDs in the action group, this must still be defined but can be set to the empty string.)
@@ -35,7 +36,7 @@ This module provides no outputs.
 
 ## Usage
 
-The following example shows how to use the module to create an Azure alert for an application insights instance.
+The following example shows how to use the module to create an (enabled) Azure alert for an application insights instance.
 
 ```terraform
 module "messy-dudes-alert" {

@@ -8,6 +8,10 @@
     "alertDesc": {
       "type": "string"
     },
+    "alertEnabled": {
+      "type": "string",
+      "defaultValue": "true"
+    },
     "appInsightsName": {
       "type": "string"
     },
@@ -62,7 +66,7 @@
       },
       "properties": {
         "description": "[parameters('alertDesc')]",
-        "enabled": "true",
+        "enabled": "[parameters('alertEnabled')]",
         "skuType": "L1",
         "source": {
           "query": "[parameters('appInsightsQuery')]",

@@ -15,6 +15,7 @@ resource "azurerm_template_deployment" "custom_alert" {
   parameters = {
     alertName                = "${var.alert_name}"
     alertDesc                = "${var.alert_desc}"
+    alertEnabled             = "${var.enabled}"
     appInsightsName          = "${var.app_insights_name}"
     location                 = "${var.location}"
     triggerThresholdOperator = "${var.trigger_threshold_operator}"
