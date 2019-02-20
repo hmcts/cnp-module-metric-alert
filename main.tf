@@ -7,6 +7,7 @@ data "template_file" "metricalerttemplate" {
 }
 
 resource "azurerm_template_deployment" "custom_alert" {
+  count               = "${var.enabled ? 1 : 0}"
   template_body       = "${data.template_file.metricalerttemplate.rendered}"
   name                = "${var.alert_name}"
   resource_group_name = "${var.resourcegroup_name}"
@@ -15,7 +16,6 @@ resource "azurerm_template_deployment" "custom_alert" {
   parameters = {
     alertName                = "${var.alert_name}"
     alertDesc                = "${var.alert_desc}"
-    alertEnabled             = "${var.enabled}"
     appInsightsName          = "${var.app_insights_name}"
     location                 = "${var.location}"
     triggerThresholdOperator = "${var.trigger_threshold_operator}"

@@ -14,7 +14,6 @@ The following parameters are required by this module
 - `location` The location of the Azure data center.
 - `alert_name` The name of the alert to create.
 - `alert_desc` A description of the alert.
-- `enabled` true/false flag.
 - `app_insights_query` The custom query to execute against the logs. See https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics .
 - `action_group_name` The name of the action group to invoke when the alert is triggered.
 - `custom_email_subject` The subject of the email sent to the email IDs specified in the action group. (If there are no email IDs in the action group, this must still be defined but can be set to the empty string.)
@@ -22,6 +21,7 @@ The following parameters are required by this module
 
 The following parameters are optional
 
+- `enabled` true/false flag. Default is true
 - `frequency_in_minutes` The number of minutes between inspections. That is, a value of `5` means the alert will be queried every 5 minutes, for a frequency of 12/minute. Default is `5`.
 - `time_window_in_minutes` The previous window of time over which to execute the query, in minutes. This is often the same value as `frequency_in_minutes`. Default is `5`.
 - `severity_level` The severity of this alert. Allowed values are from `0` to `4`. Default is `3`.
