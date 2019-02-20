@@ -21,6 +21,7 @@ The following parameters are required by this module
 
 The following parameters are optional
 
+- `enabled` true/false flag. Default is true
 - `frequency_in_minutes` The number of minutes between inspections. That is, a value of `5` means the alert will be queried every 5 minutes, for a frequency of 12/minute. Default is `5`.
 - `time_window_in_minutes` The previous window of time over which to execute the query, in minutes. This is often the same value as `frequency_in_minutes`. Default is `5`.
 - `severity_level` The severity of this alert. Allowed values are from `0` to `4`. Default is `3`.
@@ -35,7 +36,7 @@ This module provides no outputs.
 
 ## Usage
 
-The following example shows how to use the module to create an Azure alert for an application insights instance.
+The following example shows how to use the module to create an (enabled) Azure alert for an application insights instance.
 
 ```terraform
 module "messy-dudes-alert" {
