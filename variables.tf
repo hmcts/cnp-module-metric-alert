@@ -60,6 +60,6 @@ variable trigger_threshold {
 }
 
 variable "enabled" {
-  description = "Whether alert is enabled or not"
+  description = "Whether alert is created or not"
   default = "true"
 }
