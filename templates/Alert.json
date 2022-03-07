@@ -49,6 +49,18 @@
     },
     "appInsightsQuery": {
       "type": "string"
+    },
+    "application": {
+      "type": "string"
+    },
+    "builtFrom": {
+      "type": "string"
+    },
+    "businessArea": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
     }
   },
   "resources": [
@@ -58,7 +70,11 @@
       "type": "microsoft.insights/scheduledqueryrules",
       "location": "[parameters('location')]",
       "tags": {
-        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource"
+        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource",
+        "application": "[parameters('application')]",
+        "builtFrom": "[parameters('builtFrom')]",
+        "businessArea": "[parameters('businessArea')]",
+        "environment": "[parameters('environment')]"
       },
       "properties": {
         "description": "[parameters('alertDesc')]",

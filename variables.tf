@@ -63,3 +63,17 @@ variable "enabled" {
   description = "Whether alert is created or not"
   default = "true"
 }
+
+variable "environment" {
+  description = "Enter name of the environment to deploy"
+}
+variable "application" {
+  description = "Enter name of the application"
+}
+
+variable "builtFrom"{
+  description = "Name of the GitHub repository this application is being built from."
+}
+variable "businessArea"{
+  description = "Enter Business Area this application belongs to"
+}

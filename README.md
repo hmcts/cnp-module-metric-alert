@@ -19,6 +19,12 @@ The following parameters are required by this module
 - `custom_email_subject` The subject of the email sent to the email IDs specified in the action group. (If there are no email IDs in the action group, this must still be defined but can be set to the empty string.)
 - `trigger_threshold` The threshold at which to trigger the alert, with respect to the `trigger_threshold_operator`.
 
+The following parameters are required for resource tagging. see https://github.com/hmcts/azure-policy/tree/master/policies/tagging
+- `businessArea`  Enter Business Area this application belongs to
+- `builtFrom`  Name of the GitHub repository this application is being built from
+- `application`  Enter name of the application
+- `environment`  Enter name of the environment to deploy
+
 The following parameters are optional
 
 - `enabled` true/false flag. Default is true
