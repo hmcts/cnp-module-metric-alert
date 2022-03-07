@@ -63,3 +63,11 @@ variable "enabled" {
   description = "Whether alert is created or not"
   default = "true"
 }
+
+variable "resourceTags" {
+  type = object({ environment=string,
+                  application=string,
+                  businessArea=string,
+                  builtFrom=string})
+  description = "Azure resource tags"
+}

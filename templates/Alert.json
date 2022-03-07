@@ -49,6 +49,9 @@
     },
     "appInsightsQuery": {
       "type": "string"
+    },
+    "resourceTags": {
+      "type": "object"
     }
   },
   "resources": [
@@ -58,7 +61,7 @@
       "type": "microsoft.insights/scheduledqueryrules",
       "location": "[parameters('location')]",
       "tags": {
-        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource"
+        "[union(parameters('resourceTags'), concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName'))): \"Resource\")]"
       },
       "properties": {
         "description": "[parameters('alertDesc')]",
