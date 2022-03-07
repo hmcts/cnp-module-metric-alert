@@ -64,10 +64,16 @@ variable "enabled" {
   default = "true"
 }
 
-variable "resourceTags" {
-  type = object({ environment=string,
-                  application=string,
-                  businessArea=string,
-                  builtFrom=string})
-  description = "Azure resource tags"
+variable "environment" {
+  description = "Enter name of the environment to deploy"
+}
+variable "application" {
+  description = "Enter name of the application"
+}
+
+variable "builtFrom"{
+  description = "Name of the GitHub repository this application is being built from."
+}
+variable "businessArea"{
+  description = "Enter Business Area this application belongs to"
 }
