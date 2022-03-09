@@ -27,9 +27,5 @@ resource "azurerm_template_deployment" "custom_alert" {
     customEmailSubject       = "${var.custom_email_subject}"
     appInsightsQuery         = "${var.app_insights_query}"
     actionGroupRg            = "${local.action_group_rg}"
-    environment              = "${var.environment}"
-    application              = "${var.application}"
-    builtFrom                = "${var.builtFrom}"
-    businessArea             = "${var.businessArea}"
   }
 }
