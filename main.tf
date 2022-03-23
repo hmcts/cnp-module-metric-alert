@@ -27,5 +27,6 @@ resource "azurerm_template_deployment" "custom_alert" {
     customEmailSubject       = "${var.custom_email_subject}"
     appInsightsQuery         = "${var.app_insights_query}"
     actionGroupRg            = "${local.action_group_rg}"
+    commonTags               = base64encode(jsonencode(var.common_tags))
   }
 }

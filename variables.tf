@@ -63,3 +63,7 @@ variable "enabled" {
   description = "Whether alert is created or not"
   default = "true"
 }
+variable "common_tags" {
+  description = "Resource tags"
+  type = map(any)
+}
