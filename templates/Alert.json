@@ -96,7 +96,6 @@
     }
   ],
   "variables": {
-    "dbRules": "[base64ToJson(parameters('dbRules'))]",
     "tags": "[base64ToJson(parameters('commonTags'))]"
   }
 }
