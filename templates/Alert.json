@@ -52,6 +52,12 @@
     },
     "commonTags": {
       "type": "string"
+    },
+    "additionalTags": {
+      "type": "object",
+      "defaultValue": {
+        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource"
+      }
     }
   },
   "resources": [
@@ -60,8 +66,7 @@
       "apiVersion": "2017-09-01-preview",
       "type": "microsoft.insights/scheduledqueryrules",
       "location": "[parameters('location')]",
-      "tags": "[variables('tags'), concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName'))): 'Resource']",
-
+      "tags": "[union(variables('tags'), parameters('additionalTags'))]",
       "properties": {
         "description": "[parameters('alertDesc')]",
         "enabled": "true",
