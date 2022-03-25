@@ -49,6 +49,9 @@
     },
     "appInsightsQuery": {
       "type": "string"
+    },
+    "commonTags": {
+      "type": "string"
     }
   },
   "resources": [
@@ -57,9 +60,7 @@
       "apiVersion": "2017-09-01-preview",
       "type": "microsoft.insights/scheduledqueryrules",
       "location": "[parameters('location')]",
-      "tags": {
-        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource"
-      },
+      "tags": "[union(variables('tags'), variables('additionalTags'))]",
       "properties": {
         "description": "[parameters('alertDesc')]",
         "enabled": "true",
@@ -91,5 +92,11 @@
         }
       }
     }
-  ]
+  ],
+  "variables": {
+    "tags": "[base64ToJson(parameters('commonTags'))]",
+    "additionalTags": {
+        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appInsightsName')))]": "Resource"
+      }
+  }
 }
