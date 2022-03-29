@@ -18,6 +18,7 @@ The following parameters are required by this module
 - `action_group_name` The name of the action group to invoke when the alert is triggered.
 - `custom_email_subject` The subject of the email sent to the email IDs specified in the action group. (If there are no email IDs in the action group, this must still be defined but can be set to the empty string.)
 - `trigger_threshold` The threshold at which to trigger the alert, with respect to the `trigger_threshold_operator`.
+- `common_tags` The resource tags.
 
 The following parameters are optional
 
