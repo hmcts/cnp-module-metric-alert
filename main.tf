@@ -6,9 +6,9 @@ data "template_file" "metricalerttemplate" {
   template = "${file("${path.module}/templates/Alert.json")}"
 }
 
-resource "azurerm_template_deployment" "custom_alert" {
+resource "azurerm_resource_group_template_deployment" "custom_alert" {
   count               = "${var.enabled ? 1 : 0}"
-  template_body       = "${data.template_file.metricalerttemplate.rendered}"
+  template_content       = "${data.template_file.metricalerttemplate.rendered}"
   name                = "${var.alert_name}"
   resource_group_name = "${var.resourcegroup_name}"
   deployment_mode     = "Incremental"
