@@ -13,7 +13,7 @@ resource "azurerm_resource_group_template_deployment" "custom_alert" {
   resource_group_name = "${var.resourcegroup_name}"
   deployment_mode     = "Incremental"
 
-  parameters_content = {
+  parameters_content = jsonencode({
     alertName                = "${var.alert_name}"
     alertDesc                = "${var.alert_desc}"
     appInsightsName          = "${var.app_insights_name}"
@@ -27,6 +27,6 @@ resource "azurerm_resource_group_template_deployment" "custom_alert" {
     customEmailSubject       = "${var.custom_email_subject}"
     appInsightsQuery         = "${var.app_insights_query}"
     actionGroupRg            = "${local.action_group_rg}"
-    commonTags               = base64encode(jsonencode(var.common_tags))
-  }
+    commonTags               = base64encode(var.common_tags)
+  })
 }
