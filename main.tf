@@ -13,7 +13,7 @@ resource "azurerm_resource_group_template_deployment" "custom_alert" {
   resource_group_name = "${var.resourcegroup_name}"
   deployment_mode     = "Incremental"
 
-  parameters = {
+  parameters_content = {
     alertName                = "${var.alert_name}"
     alertDesc                = "${var.alert_desc}"
     appInsightsName          = "${var.app_insights_name}"
