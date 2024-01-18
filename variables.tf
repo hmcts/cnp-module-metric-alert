@@ -30,11 +30,13 @@ variable "frequency_in_minutes" {
 
 variable "time_window_in_minutes" {
   description = "The previous window of time over which to execute the query, in minutes"
+  type        = string
   default     = "5"
 }
 
 variable "severity_level" {
   description = "The severity of this alert, from 0 to 4 inclusive"
+  type        = string
   default     = "3"
 }
 
