@@ -24,7 +24,6 @@ variable "app_insights_query" {
 
 variable "frequency_in_minutes" {
   description = "The number of minutes between inspections"
-  type        = string
   default     = "5"
 }
 
